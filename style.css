@@ -32,3 +32,39 @@ html {
     margin: 0;
     font-size: 1.5em;
   }
+
+  .container {
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-rows: auto 1fr 1fr auto;
+      grid-template-areas: 
+      "header           header      header"
+      "sidebar-left     midsection  sidebar-right"
+      "sidebar-left     midsection  sidebar-right"
+      "sidebar-left     footer      footer"
+      
+  }
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto;
+}
+
+.sidebar-left {
+      grid-area: sidebar-left;
+  }
+
+.midsection {
+    grid-area: midsection;
+}
+
+.sidebar-right {
+    grid-area: sidebar-right;
+}
+
+.footer {
+    grid-area: footer;
+}
+
