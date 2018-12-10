@@ -5,6 +5,7 @@ html {
     font-weight: normal;
     color: #272727;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+
   }
   
   *,
@@ -15,7 +16,9 @@ html {
   
   body {
     margin: 0;
-    /* min-height: 100vh; */
+  /* overflow-x: hidden; */
+    
+   
     
   }
 
@@ -33,12 +36,16 @@ html {
 
   .photo {
       max-width: 100%;
-      margin: 0 auto;
+    
   }
 
+  figure {
+        text-align: center;
+    }
+
   .container {
+    min-height: 100vh;
       display: grid;
-      min-height: 100vh;
       grid-template-columns: 1fr 3fr 1fr;
       grid-template-rows: auto 1fr 1fr auto;
       grid-template-areas: 
@@ -121,19 +128,100 @@ html {
     grid-area: footer;
 }
 
+/* Desktop Kleiner */
 @media screen and (max-width: 1000px) {
     
     .container {
         display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: 
+        "header header"
+        "sidebar-left sidebar-right" 
+        "midsection midsection"
+        "footer footer"   
+    }
+
+    .photo {
+        max-width: 50%;
+        
+    }
+
+    figure {
+        text-align: center;
+    }
+    
+}
+
+/* Tablet */
+@media screen and (max-width: 600px) {
+    
+    .container {
+        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr 1fr 1fr auto;
+        grid-template-rows: auto auto 1fr auto auto;
         grid-template-areas: 
         "header"
         "sidebar-left"
         "midsection"
         "sidebar-right"
-        "footer"
+        "footer" 
+    }
+
+    .header {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        justify-items: center;
+    }
+
+    .photo {
+        max-width: 50%;
         
     }
-   
+    
 }
+
+
+/* Mobile */
+@media screen and (max-width: 450px) {
+    
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas: 
+        "header"
+        "sidebar-left"
+        "midsection"
+        "sidebar-right"
+        "footer" 
+    }
+
+    .header {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        justify-items: center;
+    }
+
+    .navbar {
+        list-style: none;
+        margin: 0;
+        text-align: center;
+        padding: 1rem;
+        display: grid;
+        grid-auto-flow: row;
+        grid-gap: 2rem;
+    }
+
+    .paragraph {
+        text-align: center;
+    }
+
+
+    .photo {
+        max-width: 50%;
+        
+    }
+    
+}
+
